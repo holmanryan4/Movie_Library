@@ -37,12 +37,16 @@ namespace WebAPISample.Controllers
             var movieInDb = _context.Movies.Where(m => m.MovieId == id);
             return  movieInDb.ToString();
         }
-
+        
         // POST api/movie
         [HttpPost]
         public void Post([FromBody]Movie value)
         {
             // Create movie in db logic
+            var newMovie = value;
+            _context.Movies.Add(newMovie);
+            _context.SaveChanges();
+           
         }
 
         // PUT api/movie/5
