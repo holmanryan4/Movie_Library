@@ -13,7 +13,7 @@
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
+                $('#response pre movieTable').html( data );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
@@ -38,6 +38,15 @@
         e.preventDefault();
         
     }
+    $(document).ready(function () { 
+        var tableData = "";
+        
+        // json 
+        // .each 
+
+        $('#movieTable').DataTable();
+       
+        });
 
     $('#my-form').submit( processForm );
 })(jQuery);
