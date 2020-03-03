@@ -2,7 +2,8 @@
     function processForm( e ){
         var dict = {
         	Title : this["title"].value,
-        	Director: this["director"].value
+            Director: this["director"].value,
+            Genre: this["Genre"].value
         };
 
         $.ajax({
@@ -17,6 +18,7 @@
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
+            
         });
 
         $.ajax({
@@ -34,6 +36,7 @@
         });
 
         e.preventDefault();
+        
     }
 
     $('#my-form').submit( processForm );
