@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding New Movie</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <link rel="stylesheet" href="bootstrap (3).css">
+    <link rel="stylesheet" href="bootstrap.min (5).css">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">The Movie Man</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="NewMovie.html">Add New Movie </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="LibraryList.html"> The Library </a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search Movie Library">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+</head>
+<body>
+   <h2>Add New Movie</h2>
+   <center><h3>Please enter the information for the movie you would like to add to the library.</h3></center>
+
+<center><div class="table">
+    <div class="col-lg-6">
+        <form asp-action="Create">
+           
+          <div class="form-group">
+                <input asp-for="Title" class="form-control" placeholder="Movie Title" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Director" class="form-control" placeholder="Director's Name" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Genre" class="form-control" placeholder=" Movie Genre" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Movie" class="btn btn-primary" />
+            </div>
+        </form>
+    </div></center>
+</div>
+</body>
+</html>
+
+
+
+
+
