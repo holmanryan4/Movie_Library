@@ -20,13 +20,13 @@ namespace WebAPISample.Controllers
         }
         // GET api/movie
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Movie> Get()
         {
             // Retrieve all movies from db logic
-            var movieInDb = _context.Movies.Select(m => m.Title).ToList();
-            movieInDb.FirstOrDefault();
+            //var movieInDb = 
+            //movieInDb.FirstOrDefault();
 
-            return movieInDb; /*new string[] { "movie1 string", "movie2 string" };*/
+            return _context.Movies.ToList();  /*new string[] { "movie1 string", "movie2 string" };*/
         }
 
         // GET api/movie/5
@@ -66,14 +66,13 @@ namespace WebAPISample.Controllers
         }
 
         // DELETE api/movie/5
-        [HttpDelete]
-        public void Delete(int id)
+        [HttpDelete("{id}")]
+        public void Delete(Movie movie)
         {
             // Delete movie from db logic
 
-            Movie movie = _context.Movies.Find(id);
-
             _context.Movies.Remove(movie);
+            _context.Update(movie);
             _context.SaveChanges();
         }
 

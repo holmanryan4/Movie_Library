@@ -28,12 +28,28 @@
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
+                $('#response pre movieTable').html( data );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
         });
+
+        $.ajax({
+            url: 'https://localhost:44325/api/movie',
+            dataType: 'json',
+            type: 'put',
+            contentType: 'application/json',
+            data: JSON.stringify(dict),
+            succes: function(data, textStatus, jQxhr ){
+                $('#navbar-nav mr-auto').find("#title").html(data);
+            },
+            error: function(jQxhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        });
+
+        
 
         e.preventDefault();
         
