@@ -63,6 +63,16 @@ $(document).ready(function(){
      
     $('#movieTable').append(movieInfo);
     })});
+  
+function validateForm() {
+  var valForm = document.forms["my-form"]["title"].value;
+  if (valForm == "") {
+    alert("Title must be filled out");
+    return false;
+  }
+}
+
+    
 
   
 

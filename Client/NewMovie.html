@@ -40,7 +40,8 @@
 
 <center><div class="table">
     <div class="col-lg-6">
-        <form id="my-form">
+        
+        <form id="my-form" action="/action_page.php" onsubmit="return validateForm()">
            
           <div class="form-group">
                 <input type="text" name="title" class="form-control" placeholder="Movie Title" />
@@ -52,7 +53,7 @@
                 <input type="text" name="Genre" class="form-control" placeholder=" Movie Genre" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Add Movie" class="btn btn-primary"  href ="LibraryList.html" />
+                <input type="submit" value="Add Movie" class="btn btn-primary"/>
                
             </div>
         </form>
