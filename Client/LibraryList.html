@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library List</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./app.js"></script>
+    
 
     <link rel="stylesheet" href="bootstrap (3).css">
     <link rel="stylesheet" href="bootstrap.min (5).css">
@@ -48,23 +47,10 @@
     </table>   
       
           
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+
 </body>
 </html>
-<script>
-    $(document).ready(function(){
-        $.getJSON("movie.json", function(data){
-            var movieInfo = ' ';
-            $.each(data, function(key, value){
-                movieInfo += '<tr>';
-                movieInfo += '<td>' +value.Title+ '</td>'; 
-                movieInfo += '<td>' +value.Director+ '</td>'; 
-                movieInfo += '<td>' +value.Genre+ '</td>';
-                movieInfo += '</tr>';
-            
-        
-        });
-         
-    $('#movieTable').append(movieInfo);
-      });
-    });   
-</script>

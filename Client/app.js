@@ -13,14 +13,18 @@
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre movieTable').html( data );
+               
+               $('#movieTable').html( data );
+              
+                
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
             
         });
-
+    
+    
         $.ajax({
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
@@ -28,7 +32,7 @@
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
+                // $('#').html( data );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
@@ -43,3 +47,22 @@
 
     $('#my-form').submit( processForm );
 })(jQuery);
+
+$(document).ready(function(){
+    $.getJSON("https://localhost:44325/api/movie", function(data){
+        var movieInfo = ' ';
+        $.each(data, function(key, value){
+            movieInfo += '<tr>';
+            movieInfo += '<td>' +value["title"]+ '</td>'; 
+            movieInfo += '<td>' +value["director"]+ '</td>'; 
+            movieInfo += '<td>' +value["genre"]+ '</td>';
+            movieInfo += '</tr>';
+        
+    
+        });
+     
+    $('#movieTable').append(movieInfo);
+    })});
+
+  
+
