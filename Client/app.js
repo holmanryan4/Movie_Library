@@ -25,74 +25,59 @@
             }
         });
     
-    
-        $.ajax({
+        e.preventDefault();
+        
+    }
 
+
+     $('#my-form').submit(processForm);
+})(jQuery);
+
+
+$(document).ready(function(){
+    $.getJSON("https://localhost:44325/api/movie", function(data){
+        var movieInfo = '';
+        $.each(data, function(key, value){
+            movieInfo += '<tr>';
+            movieInfo += '<td>' +value["title"]+ '</td>'; 
+            movieInfo += '<td>' +value["director"]+ '</td>'; 
+            movieInfo += '<td>' +value["genre"]+ '</td>'; 
+            // movieInfo += '<td>' +value
+            movieInfo += '</tr>';
+           
+    
+        });
+     
+    $('#movieTable').append(movieInfo);
+
+})});
+function getMovies(){
+    $(document).ready(function(){
+        $.ajax({
+    
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
             type: 'get',
             contentType: 'application/json',
-            data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                // $('#').html( data );
-
+               
+                  $('movieTable').html( data );
+    
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
             
         });
-        
-
-
-
-    $('#my-form').submit( processForm );
-}(jQuery);
-
-
-$(document).ready(function(){
-    $.getJSON("https://localhost:44325/api/movie", function(data){
-        var movieInfo = ' ';
-        $.each(data, function(key, value){
-            movieInfo += '<tr>';
-            movieInfo += '<td>' +value["title"]+ '</td>'; 
-            movieInfo += '<td>' +value["director"]+ '</td>'; 
-            movieInfo += '<td>' +value["genre"]+ '</td>';
-            movieInfo += '</tr>';
-        
-    
-        });
-     
-    $('#movieTable').append(movieInfo);
-    })});
-  
-    function validateForm() {
-        var valForm = document.forms["my-form"]["title"].value;
-            if (valForm == "") {
-            alert("Title must be filled out");
-        return false;
-        }
-        
-}});
-
-
-function PUT() {
-    $(document).ready(function () {  
-        $("#Save").click(function () {  
-            $.ajax({  
-                url: 'https://localhost:44325/api/movie ? movieId = id ',  
-                type: 'PUT',  
-                dataType: 'json',  
-                data: { "": 'sourav' },  
-                success: function (data, textStatus, xhr) {  
-                    console.log(data);  
-                },  
-                error: function (xhr, textStatus, errorThrown) {  
-                    console.log('Error in Operation');  
-                }  
-            });  
-        });  
-    });  
+    })
 }
 
+getMovies();
 
+// function validateForm() {
+//   var valForm = document.forms["my-form"]["title"].value;
+//   if (valForm == "") {
+//     alert("Title must be filled out");
+//     return false;
+//   }
+// }});

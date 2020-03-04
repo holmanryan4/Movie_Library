@@ -24,7 +24,12 @@ namespace WebAPISample.Controllers
         {
             // Retrieve all movies from db logic
             return _context.Movies.ToList();
+<<<<<<< HEAD
         }
+=======
+            }
+                
+>>>>>>> 63af0c8777e94fdeaf62c216d7103ad7d5353632
 
 
         // GET api/movie/5
