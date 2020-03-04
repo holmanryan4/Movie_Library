@@ -23,10 +23,7 @@ namespace WebAPISample.Controllers
         public IEnumerable<Movie> Get()
         {
             // Retrieve all movies from db logic
-            //var movieInDb = 
-            //movieInDb.FirstOrDefault();
-            return _context.Movies.ToList();  /*new string[] { "movie1 string", "movie2 string" };*/
-
+            return _context.Movies.ToList();  
         }
 
         // GET api/movie/5
@@ -46,8 +43,6 @@ namespace WebAPISample.Controllers
             var newMovie = value;
             _context.Movies.Add(newMovie);
             _context.SaveChanges();
-           
-
         }
 
         // PUT api/movie/5
