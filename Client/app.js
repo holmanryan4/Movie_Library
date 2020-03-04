@@ -42,11 +42,13 @@
             }
             
         });
+        
 
 
 
     $('#my-form').submit( processForm );
-})(jQuery);
+}(jQuery);
+
 
 $(document).ready(function(){
     $.getJSON("https://localhost:44325/api/movie", function(data){
@@ -64,15 +66,33 @@ $(document).ready(function(){
     $('#movieTable').append(movieInfo);
     })});
   
-function validateForm() {
-  var valForm = document.forms["my-form"]["title"].value;
-  if (valForm == "") {
-    alert("Title must be filled out");
-    return false;
-  }
+    function validateForm() {
+        var valForm = document.forms["my-form"]["title"].value;
+            if (valForm == "") {
+            alert("Title must be filled out");
+        return false;
+        }
+        
+}});
+
+
+function PUT() {
+    $(document).ready(function () {  
+        $("#Save").click(function () {  
+            $.ajax({  
+                url: 'https://localhost:44325/api/movie ? movieId = id ',  
+                type: 'PUT',  
+                dataType: 'json',  
+                data: { "": 'sourav' },  
+                success: function (data, textStatus, xhr) {  
+                    console.log(data);  
+                },  
+                error: function (xhr, textStatus, errorThrown) {  
+                    console.log('Error in Operation');  
+                }  
+            });  
+        });  
+    });  
 }
 
-    
-
-  
 
