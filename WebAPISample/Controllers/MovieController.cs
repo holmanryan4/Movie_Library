@@ -23,7 +23,9 @@ namespace WebAPISample.Controllers
         public IEnumerable<Movie> Get()
         {
             // Retrieve all movies from db logic
-            return _context.Movies.ToList();  
+            return _context.Movies.ToList();
+            }
+                
 
 
         // GET api/movie/5
