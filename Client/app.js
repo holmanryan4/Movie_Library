@@ -13,7 +13,7 @@
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
+                $('#response pre movieTable').html( data );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
@@ -54,6 +54,8 @@
         e.preventDefault();
         
     }
+   
+        
 
     $('#my-form').submit( processForm );
 })(jQuery);

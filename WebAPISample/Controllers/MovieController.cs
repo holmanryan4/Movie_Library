@@ -25,8 +25,8 @@ namespace WebAPISample.Controllers
             // Retrieve all movies from db logic
             //var movieInDb = 
             //movieInDb.FirstOrDefault();
-
             return _context.Movies.ToList();  /*new string[] { "movie1 string", "movie2 string" };*/
+
         }
 
         // GET api/movie/5
@@ -35,7 +35,7 @@ namespace WebAPISample.Controllers
         {
             // Retrieve movie by id from db logic
             var movieInDb = _context.Movies.Where(m => m.MovieId == id).FirstOrDefault();
-            return movieInDb.ToString();
+            return  movieInDb.ToString();
         }
         
         // POST api/movie
@@ -43,25 +43,25 @@ namespace WebAPISample.Controllers
         public void Post([FromBody]Movie value)
         {
             // Create movie in db logic
-
             var newMovie = value;
             _context.Movies.Add(newMovie);
             _context.SaveChanges();
+           
+
         }
 
         // PUT api/movie/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Movie movie)
+        [HttpPut]
+        public void Put(int id, [FromBody]string value)
         {
             // Update movie in db logic
-            Movie updateMovie = _context.Movies.Where(c => c.MovieId == id).FirstOrDefault();
-            var updateMovieInDb = _context.Movies.Where(c => c.MovieId == updateMovie.MovieId).FirstOrDefault();
+            var movie = _context.Movies.Where(c => c.MovieId == id).Single();
 
+            var updateMovieInDb = _context.Movies.Where(c => c.MovieId == movie.MovieId).Single();
             updateMovieInDb.Title = movie.Title;
             updateMovieInDb.Director = movie.Director;
             updateMovieInDb.Genre = movie.Genre;
 
-            _context.Update(updateMovieInDb);
             _context.SaveChanges();
         }
 
