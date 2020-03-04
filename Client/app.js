@@ -38,15 +38,8 @@
         e.preventDefault();
         
     }
-    $(document).ready(function () { 
-        var tableData = "";
+   
         
-        // json 
-        // .each 
-
-        $('#movieTable').DataTable();
-       
-        });
 
     $('#my-form').submit( processForm );
 })(jQuery);
