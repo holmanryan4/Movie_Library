@@ -6,10 +6,12 @@
             Genre: this["Genre"].value
         };
 
+        
+
         $.ajax({
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
-            type: 'get',
+            type: 'post',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
@@ -21,29 +23,27 @@
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
-            
         });
     
     
         $.ajax({
+
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
-            type: 'post',
+            type: 'get',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
                 // $('#').html( data );
+
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
+            
         });
 
-        e.preventDefault();
-        
-    }
-   
-        
+
 
     $('#my-form').submit( processForm );
 })(jQuery);
